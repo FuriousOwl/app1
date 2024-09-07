@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Payment Details</h2>
+  <p>Booking ID: {{ object.booking.id }}</p>
+  <p>Amount: {{ object.amount }}</p>
+  <p>Date: {{ object.date }}</p>
+  <p>Method: {{ object.method }}</p>
+{% endblock %}

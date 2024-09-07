@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Review Details</h2>
+  <p>User: {{ object.user.username }}</p>
+  <p>Therapist: {{ object.therapist.profile.user.username }}</p>
+  <p>Service: {{ object.service.name }}</p>
+  <p>Rating: {{ object.rating }}</p>
+  <p>Comment: {{ object.comment }}</p>
+  <p>Date: {{ object.date }}</p>
+{% endblock %}

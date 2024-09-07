@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Therapists</h2>
+  <ul>
+    {% for therapist in object_list %}
+      <li>
+        <a href="{% url 'therapist_detail' therapist.pk %}">
+          {{ therapist.profile.user.username }} - {{ therapist.qualification }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_therapist' %}">Add new therapist</a>
+{% endblock %}

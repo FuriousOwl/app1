@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Your Bookings</h1>
+    <div class="booking-list">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Booking Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.service.name }}</td>
+                    <td>{{ booking.booking_date|date:"d M Y H:i" }}</td>
+                    <td><a href="{% url 'booking_detail' booking.id %}" class="btn btn-primary">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="{% url 'booking_create' %}">Create a new booking</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Название сайта</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><a href="{% url 'service_list' %}">Услуги</a></li>
+                    <li><a href="{% url 'therapist_list' %}">Специалисты</a></li>
+                    <li><a href="{% url 'review_list' %}">Reviews</a></li>
+                    <li><a href="{% url 'booking_list' %}">Bookings</a></li>
+                    <li><a href="{% url 'payment_list' %}">Payments</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' user.id %}">Профиль</a>
+                    <a href="{% url 'logout' %}">Выйти</a>
+                {% else %}
+                    <a href="{% url 'register' %}">Регистрация</a>
+                    <a href="{% url 'login' %}">Войти</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        © 2024 My Site
+    </footer>
+</body>
+</html>

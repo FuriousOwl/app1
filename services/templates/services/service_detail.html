@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="service-detail-container">
+  <h2>{{ service.name }}</h2>
+  <div class="service-detail">
+    <p><strong>Description:</strong> {{ service.description }}</p>
+    <p><strong>Price:</strong> {{ service.price }}</p>
+    <p><strong>Duration:</strong> {{ service.duration }}</p>
+    <a href="{% url 'update_service' service.pk %}" class="btn btn-primary">Edit</a>
+    <form method="post" action="{% url 'delete_service' service.pk %}" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

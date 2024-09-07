@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Booking Detail</h1>
+<table>
+    <tr>
+        <th>Service</th>
+        <td>{{ booking.service.name }}</td>
+    </tr>
+    <tr>
+        <th>Booking Date</th>
+        <td>{{ booking.booking_date }}</td>
+    </tr>
+    <tr>
+        <th>Created At</th>
+        <td>{{ booking.created_at }}</td>
+    </tr>
+    <tr>
+        <th>Updated At</th>
+        <td>{{ booking.updated_at }}</td>
+    </tr>
+</table>
+<a href="{% url 'booking_list' %}">Back to Bookings</a>
+{% endblock %}

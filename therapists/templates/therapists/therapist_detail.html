@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Therapist Details</h2>
+  <p>User: {{ object.profile.user.username }}</p>
+  <p>Qualification: {{ object.qualification }}</p>
+  <p>Experience: {{ object.experience }} years</p>
+  <a href="{% url 'update_therapist' object.pk %}">Edit</a>
+  <a href="{% url 'delete_therapist' object.pk %}">Delete</a>
+{% endblock %}

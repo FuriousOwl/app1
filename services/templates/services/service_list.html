@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="service-list">
+    <h1>Services</h1>
+    {% for service in services %}
+    <div class="service-card">
+        <h3>{{ service.name }}</h3>
+        <p>{{ service.description }}</p>
+        <p class="price">Price: {{ service.price }} руб.</p>
+        <p class="duration">Duration: {{ service.duration|date:"H:i" }}</p>
+    </div>
+    {% endfor %}
+    <p><a href="{% url 'create_service' %}">Add new service</a></p>
+</div>
+{% endblock %}
